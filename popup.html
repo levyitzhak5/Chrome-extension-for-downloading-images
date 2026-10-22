@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>הורדת תמונות</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>הורדת תמונות</h1>
+
+  <div class="field">
+    <label for="nameFormat">פורמט שם הקובץ</label>
+    <input type="text" id="nameFormat" placeholder="221549--YS152" value="221549--YS152" />
+    <div class="hint">
+      השם יישמר כך: <span class="example">221549--YS152_1.jpg</span>,
+      <span class="example">221549--YS152_2.jpg</span> וכו'
+    </div>
+  </div>
+
+  <div class="options">
+    <label class="checkbox-row">
+      <input type="checkbox" id="onlyVisible" checked />
+      רק תמונות גלויות (לא מוסתרות)
+    </label>
+
+    <label class="checkbox-row">
+      <input type="checkbox" id="convertJpeg" checked />
+      המר את כל התמונות ל־JPEG
+    </label>
+
+    <div class="field field-inline">
+      <label for="minSize">התעלם מתמונות קטנות מ־</label>
+      <select id="minSize">
+        <option value="0">ללא הגבלה</option>
+        <option value="50" selected>50×50 פיקסלים</option>
+        <option value="100">100×100 פיקסלים</option>
+        <option value="150">150×150 פיקסלים</option>
+        <option value="200">200×200 פיקסלים</option>
+        <option value="250">250×250 פיקסלים</option>
+      </select>
+    </div>
+  </div>
+
+  <button id="scanBtn" class="btn-secondary">סרוק תמונות בעמוד</button>
+
+  <div id="imageSection" class="image-section" style="display:none;">
+    <div class="image-toolbar">
+      <span id="imageCount" class="image-count"></span>
+      <div class="toolbar-actions">
+        <button type="button" id="selectAllBtn" class="btn-link">בחר הכל</button>
+        <button type="button" id="deselectAllBtn" class="btn-link">בטל הכל</button>
+      </div>
+    </div>
+    <div id="imageList" class="image-list"></div>
+  </div>
+
+  <button id="downloadBtn" disabled>הורד תמונות מסומנות</button>
+
+  <div id="status"></div>
+
+  <div class="preview" id="preview" style="display:none;">
+    <strong>תצוגה מקדימה של השמות:</strong>
+    <span id="previewNames"></span>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

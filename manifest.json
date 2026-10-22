@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Image Downloader - Custom Names",
+  "version": "1.5",
+  "description": "Download selected images from any website with a custom filename format and automatic numbering",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Download Images"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
